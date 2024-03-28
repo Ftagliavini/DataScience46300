@@ -1,0 +1,15 @@
+CN: nombre
+Name: nombre
+DNSHostName
+DistinguishedName
+IPv4Address: direccion IP de red
+OperatingSystem
+OperatingSystemVersion
+
+
+Get-ADComputer -filter * -Properties * | Select Name, OperatingSystem
+
+
+Get-ADComputer -Filter 'operatingsystem -like "*server*" -and enabled -eq "true" -and primarygroupid -ne "516"' 
+-Properties Name,Operatingsystem,OperatingSystemVersion,IPv4Address |
+Select-Object -Property Name,Operatingsystem,OperatingSystemVersion,IPv4Address
